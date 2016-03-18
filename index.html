@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>The Meme Quiz</title>
+		<meta charset="utf-8"/>
+		<link rel="stylesheet" href="style.css"/> 
+		<link href='https://fonts.googleapis.com/css?family=Poiret+One' rel='stylesheet' type='text/css'>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+		<script src="app.js"></script>
+	</head>
+	<body>
+		<div id="platform">
+			<section id="startScreen">
+				<h1 id="title">Welcome to the <font class="random-color" face="Comic sans MS" size="5">Meme</font> Quiz!</h1>
+				<h3 id="subTitle">Here you will be quizzed on your knowledge of the language of the internets; <font class="random-color" face="Comic sans MS" size="5">memes!</font>
+				<br> To get started, click the 'Start' button below! Good luck and have fun!</h3>
+				<button id="startButton"><font face="Comic sans MS" size="5">Start</font></button>
+			</section>
+			<section id="questionScreen">
+				<h1 id="question">What <font class="random-color" face="Comic sans MS" size="5">meme</font> is this?</h1>
+				<div><img id="memeImage" src='images/badluckbrian.png' alt="Bad Luck Brian" height="300" width="400"></div>
+				<ul id="answers">
+					<li id="a0"><input class="answerButton" type="radio" name="answer" value="0">Doge</li>
+					<li id="a1"><input class="answerButton" type="radio" name="answer" value="1">Bad Luck Brian</li>
+					<li id="a2"><input class="answerButton" type="radio" name="answer" value="2">Hotline Bling</li>
+					<li id="a3"><input class="answerButton" type="radio" name="answer" value="3">You Don't Say</li>
+				</ul>
+				<!--<div class="feedbackIcons">
+					<img class="q0FIU" src="images/unanswered.svg"><img class="q0FIC" src="images/doge.svg"><img class="q0FII" src="images/youdontsay.svg">
+					<img class="q1FIU" src="images/unanswered.svg"><img class="q1FIC" src="images/doge.svg"><img class="q1FII" src="images/youdontsay.svg">
+					<img class="q2FIU" src="images/unanswered.svg"><img class="q2FIC" src="images/doge.svg"><img class="q2FII" src="images/youdontsay.svg">
+					<img class="q3FIU" src="images/unanswered.svg"><img class="q3FIC" src="images/doge.svg"><img class="q3FII" src="images/youdontsay.svg">
+					<img class="q4FIU" src="images/unanswered.svg"><img class="q4FIC" src="images/doge.svg"><img class="q4FII" src="images/youdontsay.svg">
+				</div>-->
+				<input type="button" id="submitButton" value="Submit Answer"></button>
+			</section>
+			<section id="feedbackScreen">
+				<h1>Score: <h2 id="feedback"></h2><h3>out of 5 points!</h3></h1>
+				<h2 id="summary"></h2>
+				<button id="restart">Click this to start again!</button>
+			</section>
+		</div>
+	</body>
+</html>
