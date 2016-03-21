@@ -1,10 +1,7 @@
 $(document).ready(function(){
 	//Meme Random Color
 	var randomColor = Math.floor(Math.random()*16777215).toString(16);
-	function applyRandomColor() {
-		$('.random-color').css('color', randomColor);
-	}
-
+	
 	//Questions
 	var q0 = {
 		q: "What was the drawing that was scrawled on hundreds of surfaces during WWII, and is widely considered one of the fathers of all memes?",
@@ -37,6 +34,7 @@ $(document).ready(function(){
 	var questions = [q0,q1,q2,q3,q4];
 	var currentQuestion = questions[qNumber]
 	var correctAnswers = 0;
+
 	var checkAnswer = function(answer){
 		currentQuestion = questions[qNumber];
 		if (answer == currentQuestion.ca){
@@ -50,7 +48,50 @@ $(document).ready(function(){
 		}
 		$('#wrongOrRight').fadeOut(3000);
 		qNumber++;
+		displayQuestion();
 	}
+	
+
+	//Functionality Section
+	applyRandomColor();
+	$('#wrongOrRight').hide();
+	$('#startButton').click(function(){
+		displayQuestion();
+		$('#startScreen').hide();
+		$('#questionScreen').show();
+	});
+	$('#submitButton').click(function(){
+		var answer = $("input.answerButton:checked").val();
+		checkAnswer(answer);
+	});
+	$('#restart').click(function(){
+		qNumber = 0;
+		correctAnswers = 0;
+		currentQuestion = questions[qNumber];
+		displayQuestion();
+		$('#questionScreen').show();
+		$('#feedbackScreen').hide();
+	});
+
+	function applyRandomColor() {
+		$('.random-color').css('color', randomColor);
+	}
+
+	function displayQuestion(){
+		if(qNumber >= questions.length){
+			//qNumber is 5 or more, questions.length is 5
+			displayFeedback();
+		} else {
+			currentQuestion = questions[qNumber];
+			$('#question').html(currentQuestion.q);
+			var html = "";
+			for (var i = 0; i < currentQuestion.a.length; i++) {
+				html += "<li><input class='answerButton' type='radio' name='answer' value='"+i+"'>"+currentQuestion.a[i]+"</li>";
+			}
+			$('#answers').html(html);
+		}
+	}
+
 	var displayFeedback = function(){
 		$('#questionScreen').hide();
 		$('#feedbackScreen').show();
@@ -85,25 +126,5 @@ $(document).ready(function(){
 			$('#summary').html('You bring shame to the word memes!');
 		}
 	}
-
-	//Functionality Section
-	applyRandomColor();
-	$('#wrongOrRight').hide();
-	$('#startButton').click(function(){
-		$('#startScreen').hide();
-		$('#questionScreen').show();
-	});
-	$('#submitButton').click(function(){
-		if (qNumber == 4){
-			displayFeedback();
-		};
-		checkAnswer();
-	});
-	$('#restart').click(function(){
-		qNumber = 0;
-		correctAnswers = 0;
-		currentQuestion = questions[qNumber];
-		$('#questionScreen').show();
-		$('#feedbackScreen').hide();
-	});
 });
+
