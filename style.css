@@ -6,11 +6,13 @@ body {
 #platform {
 	background-color: white;
 	margin: 3.5%;
-	padding: 1%;
+	padding-top: 1%;
+	padding-left: 1%;
+	padding-right: 1%;
+	border: 0.5em solid red;
 }
 #startScreen {
 	margin: 5%;
-	/*display: none;*/
 }
 #startButton {
 	font-family: 'Poiret One', cursive;
@@ -23,13 +25,18 @@ body {
 }
 #questionScreen {
 	margin: 5%;
-	/*display: none;*/
+	display: none;
 }
 #memeImage {
 	border: 0.5em solid orange;
 }
 #answers {
 	list-style: none;
+}
+#wrongOrRight {
+	text-align: center;
+	margin-top: 3em;
+
 }
 /*.feedbackIcons {
 	display: inline-block;
@@ -44,7 +51,7 @@ body {
 	background-color: orange;
 }
 #feedbackScreen {
-	/*display: none;*/
+	display: none;
 }
 #summary {
 	margin-top: 5em;
@@ -53,4 +60,5 @@ body {
 #restart {
 	border: 0.5em solid red;
 	background-color: orange;
+	margin-bottom: 1em;
 }
